@@ -6,9 +6,9 @@ class Box extends Component{
   }
 
   handleRemove(){
-    console.log("clicked");
-    console.log(this.props);
+    console.log("handle remove");
     this.props.removeBox(this.props.id);
+    console.log("Remove executed");
   }
 
   render(){

@@ -11,6 +11,7 @@ class App extends Component {
       boxes:[]
     }
     this.addBox=this.addBox.bind(this);
+    this.remove=this.remove.bind(this);
   }
 
   addBox(data){
@@ -21,17 +22,19 @@ class App extends Component {
   }
 
   remove(id){
+    console.log("I got box id :",id);
     this.setState(curState=>({
-      boxes:curState.boxes.filter(b=>b.uuid!=id)
+      boxes:curState.boxes.filter(b=>b.uuid!==id)
     }))
   }
 
   render(){
-    let boxes=this.state.boxes.map(b=><Box height={b.height}
+    let boxes=this.state.boxes.map(b=>
+      <Box height={b.height}
+      key={b.uuid}
       width={b.width}
       backColor={b.backColor}
-      key={b.var}
-      id={b.var}
+      id={b.uuid}
       removeBox={this.remove}
       />);
   return (

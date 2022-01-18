@@ -4,7 +4,7 @@ class Boxform extends Component{
   constructor(props){
     super(props);
     this.state={
-      height:"",width:"",backColor:"",uuid:0
+      height:"",width:"",backColor:"",uuid:1
     }
     this.handleChange=this.handleChange.bind(this);
     this.handleSubmit=this.handleSubmit.bind(this);
@@ -13,8 +13,8 @@ class Boxform extends Component{
   handleSubmit(evt){
     evt.preventDefault();
     this.setState({uuid:this.state.uuid+1});
-    var val=this.state.uuid+1;
-    let newBox={...this.state,id:val};
+    let newBox={...this.state};
+    // console.log(newBox);
     this.props.addBox(newBox);
     this.setState({
       height:"",width:"",backColor:""
